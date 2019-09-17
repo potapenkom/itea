@@ -1,0 +1,11 @@
+C:\Projects\itea\itea\bin\Debug\netcoreapp2.1\itea.deps.json
+C:\Projects\itea\itea\bin\Debug\netcoreapp2.1\itea.runtimeconfig.json
+C:\Projects\itea\itea\bin\Debug\netcoreapp2.1\itea.runtimeconfig.dev.json
+C:\Projects\itea\itea\bin\Debug\netcoreapp2.1\itea.dll
+C:\Projects\itea\itea\bin\Debug\netcoreapp2.1\itea.pdb
+C:\Projects\itea\itea\obj\Debug\netcoreapp2.1\itea.csprojAssemblyReference.cache
+C:\Projects\itea\itea\obj\Debug\netcoreapp2.1\itea.csproj.CoreCompileInputs.cache
+C:\Projects\itea\itea\obj\Debug\netcoreapp2.1\itea.AssemblyInfoInputs.cache
+C:\Projects\itea\itea\obj\Debug\netcoreapp2.1\itea.AssemblyInfo.cs
+C:\Projects\itea\itea\obj\Debug\netcoreapp2.1\itea.dll
+C:\Projects\itea\itea\obj\Debug\netcoreapp2.1\itea.pdb
