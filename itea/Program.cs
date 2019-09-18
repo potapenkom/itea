@@ -7,26 +7,30 @@ namespace itea
         static void Main(string[] args)
         {
            /*Задача №1. Вывести в консоль самое дорогое пиво, которое можнокупить за указаную сумму денег.*/
-            int money = 4;
-            if (money >= 60)
+            int money = 13;
+            int leffe = 80;
+            int hoegarden = 70;
+            int stella = 60;
+            int obolon = 7;
+            if (money >= leffe)
             {
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Leffe");
+                int rest = money - leffe;
+                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Leffe. Остаток денег {rest} грн");
             }
-            else if (money >= 45)
+            else if (money >= hoegarden)
             {
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Bud");
+                int rest = money - hoegarden;
+                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Hoegarden. Остаток денег {rest} грн");
             }
-            else if (money >= 30)
+            else if (money >= stella)
             {
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Stella Artois");
+                int rest = money - stella;
+                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Stella Artois. Остаток денег {rest} грн");
             }
-            else if (money >= 20)
+            else if (money >= obolon)
             {
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Chernigivske");
-            }
-            else if (money >= 7)
-            {
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Obolon");
+                int rest = money - obolon;
+                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Obolon. Остаток денег {rest} грн");
             }
             else
             {
@@ -34,29 +38,29 @@ namespace itea
             }
             /*Конец задачи №1*/
             /*Задача №2. вывести в консоль сумму покупки со скидкой*/
-            double sum = 610;
+            double sum = 300;
             double procent;
             if (sum > 500)
             {
-                procent = 7;
-                sum -= sum * 0.07;
-            }
-            else if (sum >= 400 && sum <= 500)
-            {
                 procent = 5;
-                sum -= sum * 0.05;
+                sum -= sum * (procent / 100);
             }
-            else if (sum >= 300 && sum <= 400)
+            else if (sum > 400 && sum <= 500)
             {
-                procent = 5;
-                sum -= sum * 0.03;
+                procent = 3;
+                sum -= sum * (procent / 100);
+            }
+            else if (sum > 300 && sum <= 400)
+            {
+                procent = 2;
+                sum -= sum * (procent / 100);
             }
             else
             {
                 procent = 0;
                 sum -= procent;
             }
-            Console.WriteLine($"Ваша скидка {procent}%. Суммa покупки после скидк: {sum}");
+            Console.WriteLine($"Ваша скидка {procent}%. Суммa покупки после скидки: {sum} грн");
             /*Конец задачи №2*/
             Console.ReadKey();
         }
