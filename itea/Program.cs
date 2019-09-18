@@ -7,35 +7,38 @@ namespace itea
         static void Main(string[] args)
         {
            /*Задача №1. Вывести в консоль самое дорогое пиво, которое можнокупить за указаную сумму денег.*/
-            int money = 13;
+            int money = 7;
+            string drink = "";
+            int rest = 0;
             int leffe = 80;
             int hoegarden = 70;
             int stella = 60;
             int obolon = 7;
             if (money >= leffe)
             {
-                int rest = money - leffe;
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Leffe. Остаток денег {rest} грн");
+                rest = money - leffe;
+                drink = "Leffe";
             }
             else if (money >= hoegarden)
             {
-                int rest = money - hoegarden;
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Hoegarden. Остаток денег {rest} грн");
+                rest = money - hoegarden;
+                drink = "Hoegarden";
             }
             else if (money >= stella)
             {
-                int rest = money - stella;
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Stella Artois. Остаток денег {rest} грн");
+                rest = money - stella;
+                drink = "Stella Artois";
             }
             else if (money >= obolon)
             {
-                int rest = money - obolon;
-                Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- Obolon. Остаток денег {rest} грн");
+                rest = money - obolon;
+                drink = "Obolon";
             }
             else
             {
-                Console.WriteLine($"У Вас: {money} грн. Не достаточно для покупки пива!!!");
+              Console.WriteLine($"У Вас: {money} грн. Не достаточно для покупки пива!!!");
             }
+              Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- {drink}. Остаток денег {rest} грн");
             /*Конец задачи №1*/
             /*Задача №2. вывести в консоль сумму покупки со скидкой*/
             double sum = 300;
