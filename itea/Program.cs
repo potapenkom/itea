@@ -6,66 +6,25 @@ namespace itea
     {
         static void Main(string[] args)
         {
-           /*Задача №1. Вывести в консоль самое дорогое пиво, которое можнокупить за указаную сумму денег.*/
-            int money = 7;
-            string drink = "";
-            int rest = 0;
-            int leffe = 80;
-            int hoegarden = 70;
-            int stella = 60;
-            int obolon = 7;
-            if (money >= leffe)
+            Console.WriteLine("Enter number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            int length = 0;
+            int sum = 0;
+            int count = 0;
+            do
             {
-                rest = money - leffe;
-                drink = "Leffe";
-            }
-            else if (money >= hoegarden)
-            {
-                rest = money - hoegarden;
-                drink = "Hoegarden";
-            }
-            else if (money >= stella)
-            {
-                rest = money - stella;
-                drink = "Stella Artois";
-            }
-            else if (money >= obolon)
-            {
-                rest = money - obolon;
-                drink = "Obolon";
-            }
-            else
-            {
-              Console.WriteLine($"У Вас: {money} грн. Не достаточно для покупки пива!!!");
-            }
-              Console.WriteLine($"У Вас: {money} грн. Сомое дорогое пиво, которое вы можете купить- {drink}. Остаток денег {rest} грн");
-            /*Конец задачи №1*/
-            /*Задача №2. вывести в консоль сумму покупки со скидкой*/
-            double sum = 300;
-            double procent;
-            if (sum > 500)
-            {
-                procent = 5;
-                sum -= sum * (procent / 100);
-            }
-            else if (sum > 400 && sum <= 500)
-            {
-                procent = 3;
-                sum -= sum * (procent / 100);
-            }
-            else if (sum > 300 && sum <= 400)
-            {
-                procent = 2;
-                sum -= sum * (procent / 100);
-            }
-            else
-            {
-                procent = 0;
-                sum -= procent;
-            }
-            Console.WriteLine($"Ваша скидка {procent}%. Суммa покупки после скидки: {sum} грн");
-            /*Конец задачи №2*/
-            Console.ReadKey();
+                length += 1;
+                int digit = number % 10;
+                if (digit % 2 == 0)
+                    sum += digit;
+
+                if (digit % 3 == 0)
+                    count += 1;
+                number /= 10;
+
+            } while (number > 0);
+
+            Console.WriteLine($"Digits in number: {length}, Sum of even numbers: {sum}, Number of multiples of three: {count}.");
         }
     }
 }
