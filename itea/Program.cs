@@ -6,6 +6,7 @@ namespace itea
     {
         static void Main(string[] args)
         {
+            /*Start first task*/
             Console.WriteLine("Enter number: ");
             int number = Convert.ToInt32(Console.ReadLine());
             int length = 0;
@@ -25,6 +26,33 @@ namespace itea
             } while (number > 0);
 
             Console.WriteLine($"Digits in number: {length}, Sum of even numbers: {sum}, Number of multiples of three: {count}.");
+            /*End first task*/
+            /*Start second task*/
+            Random random = new Random();
+            int randomNumber = random.Next(0, 100);
+            Console.WriteLine($"Rand is {randomNumber}");
+            int attempt = 1;
+            do
+            {
+                Console.WriteLine("Enter number from 1 to 100: ");
+                int input = Convert.ToInt32(Console.ReadLine());
+                if (randomNumber == input)
+                {
+                    Console.WriteLine($"Congratulations!!! You guessed the number on the {attempt} try");
+                    break;
+                }
+                else if (input > randomNumber)
+                {
+                    Console.WriteLine("Enter a number less");
+                }
+                else
+                {
+                    Console.WriteLine("Enter number greater than");
+                }
+                attempt += 1;
+            } while (attempt <= 5);
+            Console.WriteLine("Attempts have ended. Game over");
+            /*End second task*/
         }
     }
 }
