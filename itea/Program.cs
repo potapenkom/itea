@@ -29,29 +29,28 @@ namespace itea
             /*End first task*/
             /*Start second task*/
             Random random = new Random();
-            int randomNumber = random.Next(0, 100);
-            Console.WriteLine($"Rand is {randomNumber}");
+            int correctAnswer = random.Next(0, 100);
             int attempt = 1;
+            string answerMore = "Enter number greater than";
+            string answerSmall = "Enter a number less";
             do
             {
-                Console.WriteLine("Enter number from 1 to 100: ");
-                int input = Convert.ToInt32(Console.ReadLine());
-                if (randomNumber == input)
+                Console.WriteLine("Enter a number from 1 to 100: ");
+                int userAnswer = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"userAnswer is {userAnswer}");
+                if (userAnswer == correctAnswer)
                 {
                     Console.WriteLine($"Congratulations!!! You guessed the number on the {attempt} try");
                     break;
                 }
-                else if (input > randomNumber)
+                string hint = (userAnswer > correctAnswer) ? answerSmall : answerMore;
+                Console.WriteLine(hint);
+                if (attempt == 5)
                 {
-                    Console.WriteLine("Enter a number less");
-                }
-                else
-                {
-                    Console.WriteLine("Enter number greater than");
+                    Console.WriteLine($"Attempts have ended. Game over. Correct answer was {correctAnswer}");
                 }
                 attempt += 1;
             } while (attempt <= 5);
-            Console.WriteLine("Attempts have ended. Game over");
             /*End second task*/
         }
     }
