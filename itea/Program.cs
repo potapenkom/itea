@@ -23,6 +23,40 @@ namespace itea
                 Console.Write($"{arr2[i]}");
             }
             /* end first task*/
+            Console.WriteLine("Second task");
+            /*Second task*/
+            int month = 12;
+            int days31 = 31;
+            int days30 = 30;
+            int days28 = 28;
+
+            for (int i = 1; i <= month; i++)
+            {
+                Console.WriteLine("Месяц " + i);
+                if (i == 2)
+                {
+                    for (int x = 1; x <= days28; x++)
+                    {
+                        Console.WriteLine("День " + x);
+                    }
+                }
+                else if (i == 4 || i == 6 || i == 9 || i == 11)
+                {
+                    for (int x = 1; x <= days30; x++)
+                    {
+                        Console.WriteLine("День " + x);
+                    }
+                }
+                else
+                {
+                    for (int x = 1; x <= days31; x++)
+                    {
+                        Console.WriteLine("День " + x);
+                    }
+                }
+                Console.WriteLine();
+            }
+            /* end second task*/
         }
     }
 }
