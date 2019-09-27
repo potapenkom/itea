@@ -23,10 +23,11 @@ namespace itea
                 Console.Write($"{arr2[i]}");
             }
             /* end first task v1*/
-            /*first task v2*/
+           /* first task v2*/
             int[] num2 = { 1, 2, 3, 4, 5 };
             int[] num1 = { 11, 22, 33, 44, 55, 7, 8, 9, 10, 11, 14, 17 };
             int middle = (num1.Length < num2.Length) ? num2.Length / 2 : num1.Length / 2;
+
             if (num1.Length < num2.Length)
             {
                 for (int j = 0; j < num1.Length; j++)
@@ -51,7 +52,7 @@ namespace itea
                     Console.Write(num1[j] + ", ");
                 }
             }
-            /* end first task v2*/
+             /*end first task v2*/
 
             Console.WriteLine();
             /*Second task*/
@@ -85,8 +86,56 @@ namespace itea
                     }
                 }
                 Console.WriteLine();
+                /*dog walk*/
+                char[] dogWalk = new char[10] { '@', '_', '_', '_', '_', '_', '_', '_', '_', '_', };
+                int dog = 0;
+
+                for (int c = 0; c < dogWalk.Length; c++)
+                {
+                    Console.Write(dogWalk[c]);
+                }
+                do
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Прогулка идет. A - вперед, D - назад");
+                    string anwer = Console.ReadLine();
+                    if (anwer == "A" || anwer == "a")
+                    {
+                        char tmp = dogWalk[dog];
+                        dogWalk[dog] = dogWalk[dog + 1];
+                        dogWalk[dog + 1] = tmp;
+                        dog++;
+
+                        for (int j = 0; j < dogWalk.Length; j++)
+                        {
+                            Console.Write(dogWalk[j]);
+                        }
+
+                    }
+                    else if (anwer == "D" || anwer == "d")
+                    {
+                        if (dog > 0)
+                        {
+                            char tmp = dogWalk[dog];
+                            dogWalk[dog] = dogWalk[dog - 1];
+                            dogWalk[dog - 1] = tmp;
+                            dog--;
+                        }
+                        for (int k = 0; k < dogWalk.Length; k++)
+                        {
+                            Console.Write(dogWalk[k]);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы нажали неизвестную букву");
+                        continue;
+                    }
+
+                } while (dog <= 10);
+
+                /*end dog walk*/
             }
-            /* end second task*/
         }
     }
 }
