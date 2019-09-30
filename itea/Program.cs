@@ -19,24 +19,51 @@ namespace itea
             /*end first task*/
             /*second task*/
             Console.Write("Enter your full name: ");
-            string fullName2 = Console.ReadLine();
-            int firstSpace2 = fullName2.IndexOf(" ");
-            int lastSpace2 = fullName2.LastIndexOf(" ");
-            string surname2 = fullName2.Substring(0, firstSpace);
-            string partName = fullName2.Substring(firstSpace + 1);
-            string name2 = partName.Substring(0, firstSpace);
-            string patronymic2 = fullName2.Substring(lastSpace + 1);
-            string[,] full = {{surname2, name2, patronymic2},
-                       {surname2, name2, patronymic2},  
-                       {surname2, name2, patronymic2},};
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    Console.Write(full[i, j]);
-                }
+            string fullName1 = Console.ReadLine();
+            int firstSpace1 = fullName1.IndexOf(" ");
+            int lastSpace1 = fullName1.LastIndexOf(" ");
+            string surname1 = fullName.Substring(0, firstSpace1);
+            string partName = fullName.Substring(firstSpace1 + 1);
+            int firstSpace2 = partName.IndexOf(" ");
+            string name1 = partName.Substring(0, firstSpace2);
+            string patronymic1 = fullName.Substring(lastSpace1 + 1);
+
+            char[] surnameArr = surname1.ToCharArray();
+            char[] nameArr = name1.ToCharArray();
+            char[] patronymicArr = patronymic1.ToCharArray();
+            char[][] fullNameArr = new char[3][];
+
+            fullNameArr[0] = new char[surnameArr.Length];
+            fullNameArr[1] = new char[nameArr.Length];
+            fullNameArr[2] = new char[patronymicArr.Length];
+
+            int i;
+            for (i = 0; i < surnameArr.Length; i++)
+                fullNameArr[0][i] = surnameArr[i];
+            for (i = 0; i < nameArr.Length; i++)
+                fullNameArr[1][i] = nameArr[i];
+            for (i = 0; i < patronymicArr.Length; i++)
+                fullNameArr[2][i] = patronymicArr[i];
+
+            for (i = 0; i < surnameArr.Length; i++)
+                Console.Write(fullNameArr[0][i] + " ");
                 Console.WriteLine();
+
+            for (i = 0; i < nameArr.Length; i++)
+                Console.Write(fullNameArr[1][i] + " ");
+                Console.WriteLine();
+
+            for (i = 0; i < patronymicArr.Length; i++)
+                Console.Write(fullNameArr[2][i] + " ");
+                Console.WriteLine();
+
+            Console.Write("Enter a string to search for: ");
+            string search = Console.ReadLine();
+            if (fullName1.StartsWith(search) == true)
+            {
+                Console.WriteLine("Substring found!");
             }
+                Console.WriteLine("Substring not found!");
 
             /*end second task*/
 
