@@ -2,70 +2,102 @@
 
 namespace itea
 {
+    class Student
+    {
+        private bool IsDrunk;
+        public void setIsDrunk(bool state)
+        {
+            IsDrunk = state;
+        }
+        public bool getIsDrunk()
+        {
+            return IsDrunk;
+        }
+        private int studentTails;
+        public void setStudentTails(int tails)
+        {
+            studentTails = tails;
+        }
+        public int getStudentTails()
+        {
+            return studentTails;
+        }
+
+        private int studentIq;
+        public void setStudentIq(int iq)
+        {
+            studentIq = iq;
+        }
+        public int getStudentIq()
+        {
+            return studentIq;
+        }
+        private string studentName;
+        public void setStudentName()
+        {
+            Console.Write("Enter your name: ");
+            studentName = Console.ReadLine();
+        }
+        public string getStudentName()
+        {
+            return studentName;
+        }
+
+        private string studentFaculty;
+        public void setStudentFaculty()
+        {
+            Console.Write("Enter your faculty: ");
+            studentFaculty = Console.ReadLine();
+        }
+        public string getStudentFaculty()
+        {
+            return studentFaculty;
+        }
+
+        public void getInfo()
+        {
+            Console.WriteLine("Student name is " + studentName + " Student studying at the faculty " + 
+                studentFaculty + ". Today he is " + (IsDrunk ? "drunk" : "sober") + " Iq level is equal- " 
+                + studentIq + " The student has "  + studentTails + " tails");
+        }
+
+    }
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            /*first task*/
-            Console.Write("Enter your full name: ");
-            string fullName = Console.ReadLine();
-            int firstSpace = fullName.IndexOf(" ");
-            int lastSpace = fullName.LastIndexOf(" ");
-            string surname = fullName.Substring(0, firstSpace);
-            surname = char.ToUpper(surname[0]) + surname.Substring(1);
-            string name = fullName.Substring(firstSpace + 1, 1).ToUpper();
-            string patronymic = fullName.Substring(lastSpace + 1, 1).ToUpper();
-            Console.WriteLine($"Your short name is {surname } {name} {patronymic}");
-           /* end first task*/
-            /*second task*/
-            string[][] fullNameArr = new string[3][];
-            for (int k = 0; k < fullNameArr.Length; k++)
+            Random rnd = new Random();
+            int iqLevel = rnd.Next(1, 155);
+            int tailCount = rnd.Next(0, 8);
+            bool result = rnd.Next(100) < 50 ? true : false;
+            Student student = new Student();
+            student.setStudentName();
+            student.setStudentFaculty();
+            student.setIsDrunk(result);
+            student.setStudentTails(tailCount);
+            student.setStudentIq(iqLevel);
+            student.getInfo();
+            bool IsDrunk = student.getIsDrunk();
+            int iq = student.getStudentIq();
+            int tails = student.getStudentTails();
+            if (IsDrunk == true && iq < 70 || IsDrunk == true && tails > 3 || iq < 70 && tails > 3)
             {
-                Console.Write("Enter your full name: ");
-                string fullName1 = Console.ReadLine();
-                int firstSpace1 = fullName1.IndexOf(" ");
-                int lastSpace1 = fullName1.LastIndexOf(" ");
-                string surname1 = fullName1.Substring(0, firstSpace1);
-                string partName = fullName1.Substring(firstSpace1 + 1);
-                int firstSpace2 = partName.IndexOf(" ");
-                string name1 = partName.Substring(0, firstSpace2);
-                string patronymic1 = fullName1.Substring(lastSpace1 + 1);
-                for (int i = 0; i < fullNameArr.Length; i++)
-                {
-                    fullNameArr[i] = new string[] { surname1, name1, patronymic1 };
-                }
-                }
-                for (int i = 0; i < fullNameArr.Length; i++)
-                {
-                for (int j = 0; j < fullNameArr[i].Length; j++)
-                {
-                    Console.Write(fullNameArr[i][j] + "\t");
-                }
-                Console.WriteLine();
+                Console.WriteLine("Student expelled");
             }
-            Console.WriteLine();
-
-            Console.Write("Enter a string to search for: ");
-            string search = Console.ReadLine();
-            for (int i = 0; i < fullNameArr.Length; i++)
+            else
             {
-                for (int j = 0; j < fullNameArr[i].Length; j++)
+                student.setIsDrunk(result);
+                IsDrunk = student.getIsDrunk();
+                student.getInfo();
+                if (IsDrunk == false)
                 {
-                    string str = fullNameArr[i][j];
-                    if (str.IndexOf(search) != -1)
-                    {
-                        Console.WriteLine("Substring " + search + " found!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Substring not found!");
-                    }
+                    iq += 10;
+                    student.getInfo();
                 }
+                student.getInfo();
             }
-
-            /*end second task*/
-
         }
+
     }
 }
 
